@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LogActivity;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,8 +26,16 @@ class LoginController extends Controller
             if ($user->password == $request->password) {
                 Auth::login($user);
                 if ($user->is_admin == 1) {
+                    LogActivity::insert([
+                        "username" => $user->username,
+                        "logged_at" =>  now(),
+                    ]);
                     return redirect('/film');
                 }
+                LogActivity::insert([
+                    "username" => $user->username,
+                    "logged_at" =>  now(),
+                ]);
                 return redirect('/film/show');
             }
         }

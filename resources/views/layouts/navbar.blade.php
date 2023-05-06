@@ -4,8 +4,9 @@
         <form action="/logout" class="d-flex" method="POST">
             @csrf
             @if (auth()->user()->is_admin == 1)
-            <a class="nav-link" href="/film">Film</a>
-            <a class="nav-link" href="/film/create">Tambah Film</a>
+                <a class="nav-link" href="/film">Film</a>
+                <a class="nav-link" href="/film/create">Tambah Film</a>
+                <a class="nav-link" href="/film/report">Report</a>
             @endif
             <button class="btn btn-outline-success" type="submit">keluar</button>
         </form>
