@@ -9,16 +9,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session()->get('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
         <div class="row mt-5">
             <h1 class="text-center">Nonton Id</h1>
         </div>
-        <form action="/login" class="mt-5" method="POST">
+        <form action="/register" class="mt-5" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
@@ -35,9 +29,9 @@
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
             </div>
             <div class="mt-4 d-grid">
-                <button class="btn btn-success">Masuk</button>
+                <button class="btn btn-success">Daftar</button>
             </div>
-            <p>Belum punya akun? <a href="{{ route('register') }}">daftar</a></p>
+            <p>Sudah punya akun? <a href="{{ route('login') }}">masuk</a></p>
         </form>
     </div>
 @endsection
